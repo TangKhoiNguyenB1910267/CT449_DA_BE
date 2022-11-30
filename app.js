@@ -1,13 +1,13 @@
 const express = require('express');
 const cors = require('cors');
-const myappRouter = require('./app/routes/myapp.route');
+const bookRouter = require('./app/routes/book.route');
 const ApiError = require('./app/api-error');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/api/myapp', myappRouter);
+app.use('/api/book', bookRouter);
 
 app.use((req, res, next) => {
     return next(new ApiError(404, "Resource not found"));

@@ -8,7 +8,6 @@ class bookService {
     extractBookData(payload) {
         const book = {
             linkImage: payload.linkImage,
-            linkBook: payload.linkBook,
             author: payload.author,
             name: payload.name,
             content: payload.content,
@@ -24,7 +23,7 @@ class bookService {
         const book = this.extractBookData(payload);
         const result = await this.Book.findOneAndUpdate(
             book,
-            { $set: { important: book.important === true } },
+            { $set: { favorite: book.favorite === true } },
             { returnDocument: "after", upsert: true }
         );
         return result.value;
