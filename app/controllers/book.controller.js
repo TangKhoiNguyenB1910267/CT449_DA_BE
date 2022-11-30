@@ -101,10 +101,10 @@ exports.deleteAll = async (req, res, next) => {
     }
 }
 
-exports.findImportant = async (req, res, next) => {
+exports.findFavorite = async (req, res, next) => {
     try {
         const bookService = new BookService(MongoDB.client);
-        const document = await bookService.findImportant();
+        const document = await bookService.findFavorite();
         return res.send(document);
     } catch (error) {
         return next(

@@ -12,7 +12,7 @@ class bookService {
             author: payload.author,
             name: payload.name,
             content: payload.content,
-            important: payload.important,
+            favorite: payload.favorite,
         };
 
         Object.keys(book).forEach(
@@ -70,8 +70,8 @@ class bookService {
         return result.value;
     }
 
-    async findImportant() {
-        return await this.find({ important: true });
+    async findFavorite() {
+        return await this.find({ favorite: true });
     }
 
     async deleteAll() {

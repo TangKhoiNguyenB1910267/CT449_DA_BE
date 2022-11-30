@@ -9,8 +9,8 @@ router.route("/books")
     .post(book.create)
     .delete(book.deleteAll);
 
-router.route("/books/important")
-    .get(book.findImportant);
+router.route("/books/favorite")
+    .get(book.findFavorite);
 
 router.route("/books/:id")
     .get(book.findOne)
